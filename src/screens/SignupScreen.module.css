@@ -1,0 +1,31 @@
+body {
+    height: 100%;
+    background-color: #caf0f8;
+}
+
+.signupform {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    box-shadow: 3px 3px, -1em 0 .4em black;
+    
+    
+}
+
+.container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+    
+}
+
+.signupform input {
+    margin: 10px;
+}
+
+.signupform button {
+    background-color: black;
+    color: white;
+    height: 40px;
+}
