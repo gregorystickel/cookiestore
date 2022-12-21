@@ -2,21 +2,24 @@ import  { createStore } from "redux";
 
 
 let initialState = {
-    cart: []
+    isAuthenticated: false,
+    cart: [],
+    order: []
 }
 
 const reducer = (state = initialState, action ) => {
     switch (action.type) {
-        case "INCREASE":
-            return {...state, count: state.count + 5}
-        case "DECREASE":
-            return {...state, count: state.count - 1}
         case "REMOVECARTITEM":
-            return  {cart: state.cart.filter((item) => item.id !== action.payload.id)}
-            console.log(action.payload)
-            //{...state, cart: [...state.filter(item => item !== action.payload)]}
+            return {...state, cart: state.cart.filter((item) => item.id !== action.payload.id)}            
         case "ADDCART":
             return {...state, cart: [...state.cart, action.payload]}
+        case "LOGIN":
+            return {...state, isAuthenticated:  action.payload}
+            
+        case "LOGOUT":
+            return {...state, isAuthenticated: action.payload}
+        case "ADDORDER":
+            return {...state, order: action.payload}
         default:
             return state
     }

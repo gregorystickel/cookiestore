@@ -16,18 +16,7 @@ module.exports = {
         quantity: DataTypes.INTEGER
 
     }),
-    Cart: db.define("cart", {
-        id: {
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
-            primaryKey: true,
-            allowNull: false
-        },
-        product_id: DataTypes.INTEGER,
-        user_id: DataTypes.STRING,
-        quantity: DataTypes.INTEGER
-
-    }),
+    
     Users: db.define("users", {
         id: {
             type: DataTypes.INTEGER,
@@ -63,10 +52,11 @@ module.exports = {
             primaryKey: true,
             allowNull: false
         },
-        user_id: DataTypes.INTEGER,
-        product_id: DataTypes.INTEGER,
-        date: DataTypes.DATE,
-        total: DataTypes.INTEGER
+        salesTax: DataTypes.FLOAT(2),
+        subTotal: DataTypes.FLOAT(2),
+        total: DataTypes.FLOAT(2),
+        paymentType: DataTypes.STRING
+        
     }),
 
 

@@ -1,5 +1,5 @@
-import React, { useState }from "react";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React from "react";
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -19,18 +19,17 @@ function App() {
     
     <div className="App">
       <Header />
-      {/* <BrowserRouter> */}
+      
       <Routes>
         <Route index element={<HomeScreen  />}/>
         <Route path="/cart" element={<CartScreen />}/>
         <Route path="/order" element={<OrderScreen />}/>
         <Route path="/profile" element={<ProfileScreen />}/>  
-        <Route path="/order" element={<OrderScreen />}/>  
         <Route path="/signup" element={<SignupScreen />}/>
         <Route path="/login" element={<LoginScreen />}/>
         <Route path="/ordersummary" element={<OrderSummaryScreen />}/>           
       </Routes> 
-      {/* </BrowserRouter> */}
+      
       <Footer />
     </div>
     

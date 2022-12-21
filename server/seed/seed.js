@@ -205,11 +205,21 @@ module.exports = {
         price: 1.45,
         quantity: 100,
       },
+      {
+        id: 21,
+        name: "Cookie Monster Cookies",
+        image_url:
+          "https://savorthebest.com/wp-content/uploads/2022/09/blue-cookie-monster-cookies_2853-735x735.jpg",
+        description:
+          "Your Favorite Cookie",
+        price: 2.45,
+        quantity: 100,
+      },
     ])
 
       .then(() => {
         console.log("DB seeded!");
-        res.sendStatus(200);
+        //res.sendStatus(200);
       })
       .catch((err) => console.log("error seeding DB", err));
   },

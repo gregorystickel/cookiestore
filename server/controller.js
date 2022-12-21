@@ -1,54 +1,120 @@
 const Sequelize = require("sequelize");
 //const db = require("../util/database");
-const { Products, Users } = require("./util/models");
+const { Products, Users, Orders } = require("./util/models");
+const bcrypt = require("bcrypt");
+const saltRounds = 12;
 
 module.exports = {
   allProducts: (req, res) => {
     Products.findAll()
       .then((dbRes) => {
-        res.status(200).send(dbRes)
+        res.status(200).send(dbRes);
       })
       .catch((err) => console.log("error finding all products", err));
   },
-  addUser: (req, res) => {
-        
-   
-    const row = Users.findOrCreate({ 
-        where : {
-        username: req.body.user_name,
-        password: req.body.password,
-        fullname: req.body.full_name,
-        street: req.body.street_address,
-        city: req.body.city,
-        state: req.body.state,
-        postal: req.body.postal,
-        email: req.body.email,
-        phone: req.body.phone
-        }
-        
-        
-      })
+
+  addUser: async (req, res) => {
+    const {
+      user_name,
+      password,
+      full_name,
+      street_address,
+      city,
+      state,
+      postal,
+      email,
+      phone,
+    } = req.body;
+
+    const encryptedPassword = await bcrypt.hash(password, saltRounds);
+
+    console.log("Encrypted Password:",encryptedPassword);
+
+    const row = Users.findOrCreate({
+      where: {
+        username: user_name,
+        password: encryptedPassword,
+        fullname: full_name,
+        street: street_address,
+        city: city,
+        state: state,
+        postal: postal,
+        email: email.toLowerCase(),
+        phone: phone,
+      },
+    })
+
       .then((dbRes) => {
-        
-        res.status(200).send(dbRes)
+        res.status(200).send(dbRes);
       })
       .catch((err) => console.log("error submitting form", err));
+  },
+
+  login: async (req, res) => {
+    //console.log(req)
+    const {
+      user_name,
+      password
+     } = req.body;
+    console.log(user_name, password)
+    const user =  await Users.findOne({where: {username: user_name}});
+    if(!user) return res.status(403).send({message: 'Invalid username!!!'});
+    const passwordMatch = await bcrypt.compare(password, user.password);
+    console.log(passwordMatch)
+    if (!passwordMatch) return res.status(403).json({message: 'Invalid password!!!'});
+    res.status(200).json({success: true, user});
+    
+  },
+  getUser: async (req, res) => {
+    //console.log(req)
+    const {
+      user_name,
       
-  }, 
-  getCart: (req, res) => {
-        
-   
-    Cart.findAll({ 
-        
-        
-        
-        
-      })
-      .then((dbRes) => {
-        
-        res.status(200).send(dbRes)
-      })
-      .catch((err) => console.log("error getting cart", err));
+     } = req.body;
+    console.log(user_name)
+    const user =  await Users.findOne({where: {username: user_name}});
+    
+    res.status(200).json({success: true, user});
+    
+  },
+  addOrder: (req, res) => {
+    const {
+      userId,
+      salesTax,
+      subTotal,
+      total,
+      paymentType
+    } = req.body;
+    console.log("Add Order Controllers UserId", req.userId)
+    Orders.create({
+      userId: userId,
+      salesTax: salesTax,
+      subTotal: subTotal,
+      total: total,
+      paymentType: paymentType      
+
+
+    })
+    .then((dbRes) => {
+      res.status(200).send(dbRes);
+    })
+    .catch((err) => console.log("error", err)); 
+
+  },
+  getOrders:  (req, res) => {
+    console.log(req.query)
+    console.log("getOrders userId", req.query.userId)
+    Orders.findAll({ where: {
+      userId: req.query.userId,
       
-  }, 
+    }, 
+  })
+    .then((dbRes) => {
+      res.status(200).send(dbRes);
+    })
+    .catch((err) => console.log("error", err)); 
+
+  },
+
+
 };

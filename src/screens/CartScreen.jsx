@@ -1,24 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import classes from "./CartScreen.module.css";
 import CartItem from "../components/CartItem";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 // import axios from "axios";
 
 const CartScreen = () => {
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
-
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:4000/getCart")
-  //     .then((response) => {
-  //       console.log("Axios", response);
-  //       setCart(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, []);
+  
   console.log(cart);
   const initialValue = 0;
   const cartTotal = cart.reduce(
@@ -48,7 +39,7 @@ const CartScreen = () => {
       <h2>Total: ${cartTotal.toFixed(2)}</h2>
       {cartDisplay}
       
-      <button className={classes.cartbutton}>Checkout</button>
+      <button className={classes.cartbutton} onClick={() => navigate("/order")}>Checkout</button>
     </div>
   );
 };

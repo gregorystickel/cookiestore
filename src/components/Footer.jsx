@@ -3,7 +3,7 @@ import classes from './Footer.module.css'
 
 const Footer = () => {
 return (
-<footer>
+<footer className={classes.container}>
 <h1>The Cookie Store</h1>
 </footer>
 )

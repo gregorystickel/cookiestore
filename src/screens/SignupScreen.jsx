@@ -4,6 +4,7 @@ import axios from "axios";
 
 const SignupScreen = () => {
   const [message, setMessage] = useState("");
+  
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -37,7 +38,7 @@ const SignupScreen = () => {
       <form className={classes.signupform} id="signupform">
         {message && <p> {message} </p>}
         <input type="text" name="user_name" defaultValue="UserName" />
-        <input type="text" name="password" defaultValue="Password" />
+        <input type="password" name="password" defaultValue="Password" />
         <input type="text" name="full_name" defaultValue="Full Name" />
         <input
           type="text"
