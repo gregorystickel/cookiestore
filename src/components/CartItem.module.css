@@ -18,7 +18,7 @@
 .container {
     /* margin-top: 10px; */
     /* padding: 20px 16px; */
-    
+    width: 100%;
     display: flex;
     overflow:visible;
     align-items: center;
@@ -52,3 +52,20 @@
     background-color: black;
     color: white;
   }
+
+  .container input {
+    width: 25px;
+    
+    
+  }
+
+  .quantity {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    
+  }
+
+ 

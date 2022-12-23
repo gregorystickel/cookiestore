@@ -2,6 +2,7 @@ import React, {useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import classes from "./Header.module.css";
 import { useSelector, useDispatch } from "react-redux";
+import logo from "../images/cookielogo.png"
 
 const Header = () => {
   const navigate = useNavigate();
@@ -10,8 +11,7 @@ const Header = () => {
 
 
   const logout = () => {
-    localStorage.removeItem("user");
-    localStorage.removeItem("isAuthenticated");
+    
 
     dispatch({
       type: "LOGOUT",
@@ -20,12 +20,21 @@ const Header = () => {
       },
     });
     console.log(isAuthenticated)
+
+    localStorage.removeItem("user");
+    localStorage.removeItem("userId")
+    localStorage.removeItem("isAuthenticated");
+    window.location.reload(false);
+    
     
   };
 
   return (
     <header className={classes.header}>
+      <img src={logo} alt="Cookie Logo" />
       <h1>The Cookie Store</h1>
+      
+      
       <nav>
         <ul>
           {!isAuthenticated && (

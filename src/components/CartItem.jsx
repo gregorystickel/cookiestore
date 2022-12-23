@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import classes from "./CartItem.module.css";
 import { useSelector, useDispatch } from "react-redux";
 
 const CartItem = ({ id, key, image_url, name, price, quantity }) => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+  const quantityRef = useRef(0);
 
   
     
@@ -18,6 +19,18 @@ const CartItem = ({ id, key, image_url, name, price, quantity }) => {
       console.log("Remove Item");
       console.log("Cart Results",cart)
     };
+
+    const updateQuantityHandler = () => {
+      console.log(id, quantityRef.current.value)
+      dispatch({
+        type: "UPDATEQUANTITY",
+        payload: {
+          id: id, 
+          quantity: parseInt(quantityRef.current.value)
+        },
+      })
+      console.log("Update Quantity Executed", cart)
+    }
  
 
   return (
@@ -28,8 +41,12 @@ const CartItem = ({ id, key, image_url, name, price, quantity }) => {
         <div className={classes.item}>
           <h5>{name}</h5>
           <li>Price: {price.toFixed(2)}</li>
-          <li>Quantity: {quantity}</li>
+          {/* <li>Quantity: {quantity}</li> */}
           <li>SubTotal: ${(quantity * price).toFixed(2)} </li>
+          <div className={classes.quantity}>
+          <label for="quantity">Quantity</label>
+          <input type="number" name="quantity" id="quantity" defaultValue={quantity}  min="1"  max="1000"   onChange={updateQuantityHandler}  ref={quantityRef}   />
+          </div>
         </div>
         
         

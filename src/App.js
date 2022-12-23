@@ -21,7 +21,7 @@ function App() {
       <Header />
       
       <Routes>
-        <Route index element={<HomeScreen  />}/>
+        <Route index element={<HomeScreen  />} />
         <Route path="/cart" element={<CartScreen />}/>
         <Route path="/order" element={<OrderScreen />}/>
         <Route path="/profile" element={<ProfileScreen />}/>  

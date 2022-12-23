@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./ProfileCard.module.css";
 
-const ProductCard = ({ userInfo }) => {
+const ProfileCard = ({ userInfo }) => {
   
 
   return (
@@ -22,4 +22,4 @@ const ProductCard = ({ userInfo }) => {
   );
 };
 
-export default ProductCard;
+export default ProfileCard;

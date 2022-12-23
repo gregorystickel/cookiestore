@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import classes from "./OrderScreen.module.css";
-import { useNavigate, useEffect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const OrderScreen = () => {
   const navigate = useNavigate();
@@ -39,9 +39,9 @@ const OrderScreen = () => {
     return (
         <tr>
         <td>{cartItem.name}</td> 
-        <td>{cartItem.quantity}</td> 
+        <td>${cartItem.quantity}</td> 
         <td>${cartItem.price.toFixed(2)}</td>
-        <td>{(cartItem.quantity * cartItem.price).toFixed(2)}</td>
+        <td>${(cartItem.quantity * cartItem.price).toFixed(2)}</td>
         </tr>
       
     );

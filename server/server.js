@@ -4,7 +4,7 @@ const cors = require('cors')
 const server = express()
 const db = require('./util/database')
 const { seed } = require('./seed/seed')
-const { Products, Users, Order_item, Orders } = require('./util/models.js')
+const { Products, Users, Order_items, Orders } = require('./util/models.js')
 const { allProducts, addUser, login, getUser, addOrder, getOrders } = require('./controller')
 const fileupload = require("express-fileupload");
 // middleware
@@ -15,8 +15,11 @@ server.use(fileupload());
 
 
 Users.hasMany(Orders)
-Orders.hasMany(Order_item)
 Orders.belongsTo(Users)
+Order_items.belongsTo(Orders)
+Orders.hasMany(Order_items)
+
+
 
 // db
 //     .sync({force:true})

@@ -12,7 +12,44 @@ const reducer = (state = initialState, action ) => {
         case "REMOVECARTITEM":
             return {...state, cart: state.cart.filter((item) => item.id !== action.payload.id)}            
         case "ADDCART":
+            const { payload } = action
+            const item = state.cart.find(
+                product => product.id === payload.id
+            ); 
+            console.log(item)
+            if (item) {
+                return {
+                    ...state,
+                    cart: state.cart.map(item => item.id === payload.id
+                      ? {
+                        ...item,
+                        quantity: item.quantity + payload.quantity,
+                      }
+                      : item
+                    ),
+                    totalPrice: state.totalPrice + payload.price,
+                  };
+            }    
+
+
+
             return {...state, cart: [...state.cart, action.payload]}
+        case "UPDATEQUANTITY":
+            //const { payload } = action
+            console.log("Payload Update Quantiy", action.payload)
+            const item2 = state.cart.find(product => product.id === action.payload.id);
+                return {
+                    ...state,
+                    cart: state.cart.map(item => item.id === action.payload.id
+                      ? {
+                        ...item,
+                        quantity: action.payload.quantity,
+                      }
+                      : item
+                    ),
+                    totalPrice: state.totalPrice + action.payload.price,
+                  };    
+
         case "LOGIN":
             return {...state, isAuthenticated:  action.payload}
             
@@ -20,6 +57,8 @@ const reducer = (state = initialState, action ) => {
             return {...state, isAuthenticated: action.payload}
         case "ADDORDER":
             return {...state, order: action.payload}
+        case "RESETCART":
+            return {...state, cart: []}    
         default:
             return state
     }

@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import classes from "./SignupScreen.module.css";
 import axios from "axios";
+import { useNavigate }  from "react-router-dom";
+
 
 const SignupScreen = () => {
+  const navigate = useNavigate();
   const [message, setMessage] = useState("");
   
 
@@ -23,6 +26,8 @@ const SignupScreen = () => {
         console.log(response);
         if (response.data[1]) {
           setMessage("User Created!!!");
+          navigate("/login")
+
         } else {
           setMessage("User All Ready Exists!!!");
         }

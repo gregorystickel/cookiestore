@@ -2,17 +2,17 @@ import React, { useEffect, useState } from "react";
 import classes from "./ProfileScreen.module.css";
 import axios from "axios";
 import ProfileCard from "../components/ProfileCard";
+import OrderList from "../components/OrderList";
 
 const ProfileScreen = () => {
   const [userInfo, setUserInfo] = useState({});
   const currentUser = localStorage.getItem("user");
   const currentUserId = localStorage.getItem("userId")
-  const [ordersList, setOrdersList] = useState({});
+  const [ordersList, setOrdersList] = useState([]);
   
 
   useEffect(() => {
-    console.log("Display Info Current User", currentUser);
-
+    
     axios
       .post("//localhost:4000/getUser", {
         user_name: currentUser,
@@ -50,52 +50,54 @@ const ProfileScreen = () => {
   }, []);
 
   useEffect (() => {
-  console.log("userInfo.id",userInfo.id)  
+  
   const list = axios
   .get(`//localhost:4000/getOrders?userId=${currentUserId}`)
   .then(function (response) {
     console.log("Orders Response:",response) 
     setOrdersList(response.data)   
+    
          
   })
   .catch(function (err) {
     console.log(err);
   });  
 }, []);
-const displayOrders = ordersList.map((item) => {
-    return (
-  <div>
-  <tr>  
-  <td>{item.id}</td>
-  <td>{item.salesTax}</td>
-  <td>{item.subTotal}</td>
-  <td>{item.total}</td>
-  <td>{item.paymentType}</td>
-  </tr>
-  </div>
-    )
-  })
 
 
-  console.log("ordersList State", ordersList)
+const ordersDisplay = ordersList.map((item) => {
+  let newDate = new Date(item.createdAt) 
+  let convertedDate = `${newDate.getMonth()}/${newDate.getDate()}/${newDate.getFullYear()}` 
+  
+  
   return (
+    <OrderList
+      order_items={item.order_items}
+      date={convertedDate}
+      id={item.id}      
+      key={item.id}
+      salesTax={item.salesTax}
+      subTotal={item.subTotal}
+      total={item.total}
+      paymentType={item.paymentType}
+
+      
+    />
+  );
+
+});
+
+
+
+ 
+  return (
+
     <div className={classes.container}>
+      
       <h1>User Info:</h1>
       <ProfileCard userInfo={userInfo} />
-      {ordersList.length === 0 && {displayOrders}}
-      {/* {ordersList.map((item) => {
-        return (
-          <table>
-      <tr>  
-      <td>{item.id}</td>
-      <td>{item.salesTax}</td>
-      <td>{item.subTotal}</td>
-      <td>{item.total}</td>
-      <td>{item.paymentType}</td>
-      </tr>
-      </table>
-        )
-      })} */}
+      <h2>Previous Orders</h2>
+      {ordersDisplay}      
       
       
     </div>

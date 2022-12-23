@@ -35,15 +35,18 @@ module.exports = {
         phone: DataTypes.STRING
 
     }),
-    Order_item: db.define("order_item", {
+    Order_items: db.define("order_items", {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
             allowNull: false
         },
-        order_id: DataTypes.INTEGER,
-        product_id: DataTypes.INTEGER
+        product_id: DataTypes.INTEGER,
+        product_image_url: DataTypes.STRING,
+        product_name: DataTypes.STRING,
+        product_price: DataTypes.INTEGER,
+        product_quantity: DataTypes.INTEGER,
     }),
     Orders: db.define("orders", {
         id: {

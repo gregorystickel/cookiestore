@@ -15,7 +15,7 @@ html {
 }
    
 
-.container button {
+/* .container button {
     
     border-radius: 10px;
     height: 30px;
@@ -25,7 +25,7 @@ html {
     position: fixed;
     bottom: 90px;
     position: fixed;
-}
+} */
 
 .container li {
     list-style-type: none;
@@ -53,3 +53,27 @@ html {
     font-size: xx-large;
     font-weight: bold;
 } 
+
+.order_items {
+ 
+}   
+
+
+.container button {
+    border-radius: 10px;
+    height: 40px;
+    width: 100px;
+    background-color: black;
+    color: white;
+    position: fixed;
+    bottom: 90px;
+    position: fixed;
+}
+
+.container a {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}    
+

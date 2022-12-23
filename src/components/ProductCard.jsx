@@ -9,6 +9,8 @@ const ProductCard = ({ id, key, image_url, name, description, price }) => {
   const quantityRef = useRef(0);
 
   const addCartHandler = () => {
+
+
     dispatch({
       type: "ADDCART",
       payload: {
@@ -17,7 +19,7 @@ const ProductCard = ({ id, key, image_url, name, description, price }) => {
         name: name,
         description: description,
         price: price,
-        quantity: quantityRef.current.value,
+        quantity:parseInt(quantityRef.current.value),
       },
     });
     console.log("Cart Results", cart);
@@ -26,20 +28,22 @@ const ProductCard = ({ id, key, image_url, name, description, price }) => {
   };
 
   return (
-    <div className={classes.card}>
-      <div className={classes.container}>
+    <div className={classes.card} key={key}>
+      <div className={classes.container} >
         
         <img src={image_url} alt="" />
         <h2>{name}</h2>
         <h3>{message}</h3>
-        <li>{description}</li>
-        <li>{price.toFixed(2)}</li>
-        <input
+        <li key="{id}">{description}</li>
+        <li key="{name}">${price.toFixed(2)}</li>
+        <input 
           type="number"
           id={id}
           name="quantity"
           ref={quantityRef}
           defaultValue="1"
+          //min="1"
+          //max="500"
         />
         
         <button onClick={addCartHandler}>Add to Cart</button>
