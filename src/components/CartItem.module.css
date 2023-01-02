@@ -43,7 +43,6 @@
 
   .item {
     display: flex;
-    flex-direction: ;
     align-items: center;
 
   }
@@ -54,7 +53,7 @@
   }
 
   .container input {
-    width: 25px;
+    width: 30px;
     
     
   }
