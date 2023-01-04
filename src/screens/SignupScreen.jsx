@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import classes from "./SignupScreen.module.css";
 import axios from "axios";
-import { useNavigate }  from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 
 const SignupScreen = () => {
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
-  
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -26,8 +24,7 @@ const SignupScreen = () => {
         console.log(response);
         if (response.data[1]) {
           setMessage("User Created!!!");
-          navigate("/login")
-
+          navigate("/login");
         } else {
           setMessage("User All Ready Exists!!!");
         }
@@ -52,7 +49,7 @@ const SignupScreen = () => {
         />
         <input type="text" name="city" defaultValue="City" />
         <input type="text" name="state" defaultValue="State" />
-        <input type="number" name="postal" defaultValue="Zip Code" />
+        <input type="text" name="postal" defaultValue="Zip Code" />
         <input type="email" name="email" defaultValue="email" />
         <input type="text" name="phone" defaultValue="phone" />
         <button onClick={submitHandler}>Submit</button>

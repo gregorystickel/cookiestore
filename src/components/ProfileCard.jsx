@@ -2,8 +2,6 @@ import React from "react";
 import classes from "./ProfileCard.module.css";
 
 const ProfileCard = ({ userInfo }) => {
-  
-
   return (
     <div className={classes.card}>
       <div className={classes.container}>

@@ -1,16 +1,18 @@
 import React, { useRef, useState } from 'react';
 import classes from "./LoginScreen.module.css"
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 
 
 const LoginScreen = () => {
+const navigate = useNavigate();  
 const [message, setMessage] = useState("");  
 const userNameRef = useRef();
 const passwordRef = useRef();
 const dispatch = useDispatch();
-const isAuthenticated = useSelector((state) => state.isAuthenticated);
+//const isAuthenticated = useSelector((state) => state.isAuthenticated);
 
 
 function handleSubmit(e) {
@@ -34,6 +36,7 @@ function handleSubmit(e) {
           })
           localStorage.setItem("isAuthenticated", true)
           localStorage.setItem("userId", response.data.user.id)
+          navigate("/");
           
           
         } else {

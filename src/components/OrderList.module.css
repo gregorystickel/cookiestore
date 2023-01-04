@@ -1,41 +1,47 @@
-
-.card table{
-    table-layout:fixed;
-    width: 100%;
+.card table {
+  table-layout: fixed;
+  width: 100%;
 }
 
 .card {
-    display: flex;
-    justify-content: space-around;    
-    box-shadow: 0 0px 8px 0 rgba(0,0,0,0.5);
-    transition: 0.3s;
-    border-radius: 30px;
-    width: 90%;
-    padding: 10px;
-    padding-bottom: 30px;
-    flex-direction: column;
-    font-size: small;
-        
-    
+  display: flex;
+  justify-content: space-around;
+  background: linear-gradient(to bottom, #48cae4 0%, #0066cc 100%);
 
-  }
-  
-  /* On mouse-over, add a deeper shadow */
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+  border-radius: 30px;
+  width: 90%;
+  padding: 10px;
+  padding-bottom: 30px;
+  flex-direction: column;
+  font-size: small;
+}
+
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
 
 .card img {
   width: 100px;
 }
 
 .order_items {
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
+.order_item_card {
+  background: linear-gradient(to bottom, #48cae4 0%, #0066cc 100%);
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  padding: 20px;
+}
 
 @media (max-width: 600px) {
   .order_items {
@@ -43,11 +49,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: ;
-}
-.card img {
-  width: 50px;
-}
+    
   }
-
-
+  .card img {
+    width: 50px;
+  }
+}

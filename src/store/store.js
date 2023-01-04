@@ -38,6 +38,7 @@ const reducer = (state = initialState, action ) => {
             //const { payload } = action
             console.log("Payload Update Quantiy", action.payload)
             const item2 = state.cart.find(product => product.id === action.payload.id);
+            console.log(item2);
                 return {
                     ...state,
                     cart: state.cart.map(item => item.id === action.payload.id
@@ -49,7 +50,7 @@ const reducer = (state = initialState, action ) => {
                     ),
                     totalPrice: state.totalPrice + action.payload.price,
                   };    
-
+                  
         case "LOGIN":
             return {...state, isAuthenticated:  action.payload}
             

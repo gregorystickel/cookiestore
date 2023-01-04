@@ -1,33 +1,44 @@
 .hero {
-    display: flex;
-    height: 200px;
-    width: 100%;
-    color: white;
-    background: linear-gradient(336deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(https://savorthebest.com/wp-content/uploads/2022/09/blue-cookie-monster-cookies_2853-735x735.jpg);
-    background-size: cover;
-    flex-direction: column;
-    
-    
-}
-
-.hero button {
-    position: relative;
-    width:100px;
-    height:30px;
-    top:40%;
-    left:50%;
-    margin: -15px 0px 0px -50px;
-    background-color: black;
-    color: white;
+  display: flex;
+  height: 200px;
+  width: 100%;
+  color: white;
+  background: linear-gradient(336deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(https://savorthebest.com/wp-content/uploads/2022/09/blue-cookie-monster-cookies_2853-735x735.jpg);
+  background-size: cover;
+  flex-direction: column;
+  justify-content: space-between;
+  
 }
 
 .hero h1 {
-    
-    font-size: 20px;
-    color: white;
-    border-radius: 20px;
-    
-    
-    
+  font-size: 20px;
+  color: white;
+  border-radius: 20px;
+  padding: 10px;
+  
+}
 
+.marquee {
+  background-color: #0066cc;
+  font-size: 15px;
+
+}  
+
+.smallcookieimg {
+  height: 30px;
+  padding: 10px;
+  animation: rotation 2s;
+  /* transform: rotate(90deg); */
+  /* animation-timing-function: linear; */
+  /* animation-iteration-count: infinite; */
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }

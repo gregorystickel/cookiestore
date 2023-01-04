@@ -1,70 +1,62 @@
 .card {
-    /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5); */
-    transition: 0.3s;
-    border-radius: 30px;
-    width: 100%;
-    margin: 0;
-    
-    
-        
-  }
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+  transition: 0.3s;
   
-  /* On mouse-over, add a deeper shadow */
+
+  width: 100vw;
+  margin: 0;
+}
+
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
-  
-  /* Add some padding inside the card container */
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
 .container {
-    /* margin-top: 10px; */
-    /* padding: 20px 16px; */
-    width: 100%;
-    display: flex;
-    overflow:visible;
-    align-items: center;
-    justify-content: space-around;
-    
-  }
+  display: flex;
+  overflow: visible;
+  align-items: center; 
+  justify-content:space-around;
+  padding: 10px;
+}
 
 .container img {
-    height: 50px;
-    /* padding: 10px; */
-    
-    
-    
-  }    
+  height: 50px;
+}
 
-  .card li {
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-  }
+.card li {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
 
-  .item {
-    display: flex;
-    align-items: center;
+.item {
+  display: flex;
+  align-items: center;
+  
+}
 
-  }
+.container button {
+  background-color: black;
+  color: white;
+}
 
-  .container button {
-    background-color: black;
-    color: white;
-  }
+.container input {
+  width: 30px;
+}
 
-  .container input {
-    width: 30px;
-    
-    
-  }
+.quantity {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding: 10px;
+}
 
-  .quantity {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    
-  }
-
- 
+.name_price {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  
+}

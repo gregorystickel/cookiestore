@@ -9,7 +9,7 @@ const CartScreen = () => {
   //const dispatch = useDispatch();
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
-  
+
   console.log(cart);
   const initialValue = 0;
   const cartTotal = cart.reduce(
@@ -34,12 +34,13 @@ const CartScreen = () => {
   });
   return (
     <div className={classes.container}>
-
       <h1>Cart</h1>
       <h2>Total: ${cartTotal.toFixed(2)}</h2>
       {cartDisplay}
-      
-      <button className={classes.cartbutton} onClick={() => navigate("/order")}>Checkout</button>
+
+      <button className={classes.cartbutton} onClick={() => navigate("/order")}>
+        Checkout
+      </button>
     </div>
   );
 };
