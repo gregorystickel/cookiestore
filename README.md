@@ -2,7 +2,7 @@
 
 ## Description
 
-The Cookie Store will be an eccomerce site built for both mobile and desktop viewing. Users will be able to place orders with or without an account. User with an account to be able to view order history on their profile page. 
+The Cookie Store will be an ecommerce site built for both mobile and desktop viewing. Users will be able to place orders with or without an account. User with an account to be able to view order history on their profile page. 
 
 
 ## MVP

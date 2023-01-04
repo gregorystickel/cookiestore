@@ -33,12 +33,14 @@ const OrderScreen = () => {
     console.log(order);
 
     return (
-      <tr>
+      
+      <tr key={cartItem.id}>
         <td>{cartItem.name}</td>
         <td>${cartItem.quantity}</td>
         <td>${cartItem.price.toFixed(2)}</td>
         <td>${(cartItem.quantity * cartItem.price).toFixed(2)}</td>
       </tr>
+            
     );
   });
 
@@ -62,6 +64,7 @@ const OrderScreen = () => {
     <div className={classes.container}>
       <h1>Current Order</h1>
       <table>
+      <tbody>
         <tr>
           <th>Name</th>
           <th>Quantity</th>
@@ -69,10 +72,13 @@ const OrderScreen = () => {
           <th>Item Total</th>
         </tr>
         {orderDisplay}
-        <tr className={classes.fullrow}>SubTotal: ${cartTotal.toFixed(2)}</tr>
+        <tr className={classes.fullrow}><td colSpan="4">SubTotal: ${cartTotal.toFixed(2)}</td></tr>
         <tr className={classes.fullrow}>
+          <td colSpan="4">
           Sales Tax: ${(cartTotal * 0.07).toFixed(2)}
+          </td>
         </tr>
+      </tbody>  
       </table>
       <form>
         <h2>Payment Information</h2>

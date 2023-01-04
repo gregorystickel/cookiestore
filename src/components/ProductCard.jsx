@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import classes from "./ProductCard.module.css";
 import { useSelector, useDispatch } from "react-redux";
 
-const ProductCard = ({ id, key, image_url, name, description, price }) => {
+const ProductCard = ({ id, image_url, name, description, price }) => {
   const [message, setMessage] = useState("");
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
@@ -26,7 +26,7 @@ const ProductCard = ({ id, key, image_url, name, description, price }) => {
   };
 
   return (
-    <div className={classes.card} key={key}>
+    <div className={classes.card} key={id}>
       <div className={classes.container}>
         <img src={image_url} alt="" />
         <h2>{name}</h2>

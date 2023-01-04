@@ -5,11 +5,12 @@
 
 .container {
   background: linear-gradient(to top, #48cae4 0%, #0066cc 30%);
-  /* background: #0066cc 100%; */
-
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 5px;
+  margin-bottom: 80px;
+
 }
 
 table {

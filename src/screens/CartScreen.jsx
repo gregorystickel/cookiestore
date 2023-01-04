@@ -23,7 +23,7 @@ const CartScreen = () => {
     return (
       <CartItem
         id={cartItem.id}
-        key={cartItem.index}
+        key={cartItem.id}
         image_url={cartItem.image_url}
         name={cartItem.name}
         description={cartItem.description}

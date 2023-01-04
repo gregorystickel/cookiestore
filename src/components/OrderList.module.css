@@ -13,9 +13,12 @@
   border-radius: 30px;
   width: 90%;
   padding: 10px;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
   flex-direction: column;
   font-size: small;
+  z-index: 2;
+  margin-bottom: 80px;
+
 }
 
 .card:hover {

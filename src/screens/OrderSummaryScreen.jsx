@@ -80,7 +80,7 @@ const OrderSummaryScreen = () => {
       <ul>
         {newCart.map((item) => {
           return (
-            <div className={classes.order_items}>
+            <div className={classes.order_items} key={item.product_id}>
               <li>
                 Item: {item.product_name} Quantity:{item.product_quantity}
               </li>

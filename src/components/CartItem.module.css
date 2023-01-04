@@ -17,6 +17,8 @@
   align-items: center; 
   justify-content:space-around;
   padding: 10px;
+  background: linear-gradient(to bottom, #48cae4 0%, #0066cc 100%);
+  
 }
 
 .container img {

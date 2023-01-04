@@ -21,6 +21,7 @@ const Header = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("userId");
     localStorage.removeItem("isAuthenticated");
+    navigate("/login");
     window.location.reload(false);
   };
 

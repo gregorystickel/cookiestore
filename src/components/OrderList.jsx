@@ -16,7 +16,7 @@ const OrderList = ({
     console.log("displayOrderItems", item);
 
     return (
-      <div className={classes.order_item_card}>
+      <div className={classes.order_item_card} key={item.product_id}>
         <img src={item.product_image_url} alt="Product" />
         <p>{item.product_name}</p>
         <p>price: ${item.product_price.toFixed(2)}</p>
@@ -28,6 +28,7 @@ const OrderList = ({
     <div className={classes.card}>
       <div>
         <table>
+          <tbody>
           <tr>
             <th>Date</th>
             <th>Order#</th>
@@ -44,6 +45,7 @@ const OrderList = ({
             <td>${total.toFixed(2)}</td>
             <td>{paymentType}</td>
           </tr>
+          </tbody>
         </table>
       </div>
       <div className={classes.order_items}>{dispalyOrderItems}</div>
