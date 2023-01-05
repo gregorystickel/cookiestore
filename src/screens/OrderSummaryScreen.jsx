@@ -45,7 +45,7 @@ const OrderSummaryScreen = () => {
 
   useEffect(() => {
     axios
-      .post("//localhost:4000/addOrder", data, {
+      .post("http://localhost:4000/addOrder", data, {
         headers: { "Content-Type": "application/json" },
       })
       .then(function (response) {
