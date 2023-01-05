@@ -58,8 +58,10 @@ const ProfileScreen = () => {
   }, []);
 
   const ordersDisplay = ordersList.map((item) => {
+    
     let newDate = new Date(item.createdAt);
-    let convertedDate = `${newDate.getMonth()}/${newDate.getDate()}/${newDate.getFullYear()}`;
+    console.log("NewDate", newDate)
+    let convertedDate = `${newDate.getMonth()+1}/${newDate.getDate()}/${newDate.getFullYear()}`;
 
     return (
       <OrderList

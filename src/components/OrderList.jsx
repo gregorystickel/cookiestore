@@ -11,6 +11,7 @@ const OrderList = ({
   order_items,
 }) => {
   console.log("order_items", order_items);
+  console.log("Date", date)
   const dispalyOrderItems = order_items.map((item) => {
     console.log("Running displayOrderItems");
     console.log("displayOrderItems", item);
